@@ -71,6 +71,25 @@ jobs:
             -u "${{ github.actor }}" \
             --password-stdin
 
+      - name: Create environment file
+        env:
+          NODE_ENV: ${{ secrets.NODE_ENV }}
+          MYSQL_HOST: ${{ secrets.MYSQL_HOST }}
+          MYSQL_USER: ${{ secrets.MYSQL_USER }}
+          MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
+          MYSQL_DB: ${{ secrets.MYSQL_DB }}
+          MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+          MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
+        run: |
+          cat > .env <<EOF
+          NODE_ENV=$NODE_ENV
+          MYSQL_HOST=$MYSQL_HOST
+          MYSQL_USER=$MYSQL_USER
+          MYSQL_PASSWORD=$MYSQL_PASSWORD
+          MYSQL_DB=$MYSQL_DB
+          MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
+          MYSQL_DATABASE=$MYSQL_DATABASE
+          EOF
       - name: Pull and restart application
         env:
           IMAGE_TAG: ${{ needs.build-and-push.outputs.sha_tag }}
