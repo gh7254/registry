@@ -15,8 +15,9 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_DB: ${MYSQL_DB}
 
-    depends_on:
-      - db
+depends_on:
+  db:
+    condition: service_healthy
 
   db:
     image: mysql:8.0
@@ -32,6 +33,14 @@ services:
 
     volumes:
       - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
+
 
 volumes:
   mysql-data:
+
