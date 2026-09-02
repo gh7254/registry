@@ -5,4 +5,4 @@ This repository is a sample application for users following the getting started 
 The application is based on the application from the getting started tutorial at https://github.com/docker/getting-startedCI/CD test Wed Sep 2 09:58:44 WIB 2026
 
 //test
-//halo
+//Test README - CI/CD tidak melakukan deploy
