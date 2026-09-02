@@ -57,7 +57,7 @@ jobs:
   deploy-to-vm:
     if: github.event_name == 'push'
     needs: build-and-push
-    runs-on: [self-hosted, linux, x64]
+    runs-on: self-hosted
 
     permissions:
       contents: read
