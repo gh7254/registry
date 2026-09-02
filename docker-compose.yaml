@@ -3,6 +3,7 @@ services:
   app-server:
     image: ghcr.io/gh7254/registry:${IMAGE_TAG}
     container_name: todo_app_container
+    restart: unless-stopped
 
     ports:
       - "3003:3000"
