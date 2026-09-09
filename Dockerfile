@@ -17,4 +17,4 @@ RUN mkdir -p /etc/todos
 
 EXPOSE 3000
 
-CMD ["node", "src/index.js"]
+CMD ["node", "--require", "./tracing.js", "src/index.js"]

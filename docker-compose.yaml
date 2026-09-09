@@ -1,5 +1,3 @@
-services:
-
   app-server:
     image: ghcr.io/gh7254/registry:${IMAGE_TAG}
     container_name: todo_app_container
@@ -8,12 +6,16 @@ services:
     ports:
       - "3003:3000"
 
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
     environment:
       NODE_ENV: ${NODE_ENV}
       MYSQL_HOST: ${MYSQL_HOST}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_DB: ${MYSQL_DB}
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://host.docker.internal:4317
 
     depends_on:
       db:
