@@ -10,6 +10,10 @@ Pyroscope.init({
   appName:
     process.env.PYROSCOPE_APPLICATION_NAME ||
     'todo-app',
+
+  wall: {
+    collectCpuTime: true,
+  },
 });
 
 Pyroscope.start();
