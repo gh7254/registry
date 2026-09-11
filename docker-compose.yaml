@@ -44,5 +44,11 @@ services:
       retries: 20
       start_period: 30s
 
+  pyroscope:
+    image: grafana/pyroscope:latest
+    container_name: pyroscope
+    restart: unless-stopped
+    ports:
+      - "4040:4040"
 volumes:
   mysql-data:

@@ -10,6 +10,7 @@
     "@opentelemetry/auto-instrumentations-node": "^0.80.0",
     "@opentelemetry/exporter-trace-otlp-grpc": "^0.222.0",
     "@opentelemetry/sdk-node": "^0.222.0",
+    "@pyroscope/nodejs": "^0.6.3",
     "express": "^5.2.1",
     "mysql2": "^3.16.1",
     "sqlite3": "^5.1.7",
