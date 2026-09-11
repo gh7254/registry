@@ -17,7 +17,7 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_DB: ${MYSQL_DB}
       OTEL_EXPORTER_OTLP_ENDPOINT: http://host.docker.internal:4317
-
+      OTEL_SERVICE_NAME: todo-app
     depends_on:
       db:
         condition: service_healthy
